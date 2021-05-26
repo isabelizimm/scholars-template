@@ -2,28 +2,32 @@
 include::_attributes.adoc[]
 
 [#prerequisite]
-== Prerequisite CLI tools
 
-include::https://raw.githubusercontent.com/redhat-developer-demos/rhd-tutorial-common/master/prerequisites-kubernetes.adoc[]
-|===
+include::https://raw.githubusercontent.com/isabelizimm/elyra-aidevsecops-tutorial/scholars-template/docs/source/pre-req.adoc[]
 
-include::https://raw.githubusercontent.com/redhat-developer-demos/rhd-tutorial-common/master/optional-requisites.adoc[]
-|===
-
-[#minikube]
-== Setup Kubernetes
-
-:profile: my_profile
-
-include::https://raw.githubusercontent.com/redhat-developer-demos/rhd-tutorial-common/master/kubernetes-setup.adoc[]
-
-And then you are ready for start using Kubernetes:
-
-image::kubelogo.png[]
 
 [#downloadtutorial]
 == Get tutorial sources
 
-:tutorial-url: https://github.com/redhat-developer-demos/rhd-tutorial-common.git
-:folder: my_folder
+:tutorial-url: https://github.com/AICoE/elyra-aidevsecops-tutorial
+:folder: elyra-aidevsecops-tutorial
 include::https://raw.githubusercontent.com/redhat-developer-demos/rhd-tutorial-common/master/download-sources.adoc[]
+
+
+[#setup-initial-environment]
+
+include::https://raw.githubusercontent.com/isabelizimm/elyra-aidevsecops-tutorial/scholars-template/docs/source/setup-initial-environment.adoc[]
+
+[#explore-notebooks-and-manage-dependencies]
+
+include::https://raw.githubusercontent.com/isabelizimm/elyra-aidevsecops-tutorial/scholars-template/docs/source/explore-notebooks-and-manage-dependencies.adoc[]
+
+
+[#use-bots]
+
+include::https://raw.githubusercontent.com/isabelizimm/elyra-aidevsecops-tutorial/scholars-template/docs/source/use-bots.adoc[]
+
+
+[#push-changes]
+
+include::https://raw.githubusercontent.com/isabelizimm/elyra-aidevsecops-tutorial/scholars-template/docs/source/push-changes.adoc[]

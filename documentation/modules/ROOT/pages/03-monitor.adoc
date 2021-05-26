@@ -1,0 +1,11 @@
+= Deploy model
+include::_attributes.adoc[]
+
+[#create-ai-pipeline]
+
+include::https://raw.githubusercontent.com/isabelizimm/elyra-aidevsecops-tutorial/scholars-template/docs/source/create-ai-pipeline.adoc[]
+
+
+[#run-ai-pipeline]
+
+include::https://raw.githubusercontent.com/isabelizimm/elyra-aidevsecops-tutorial/scholars-template/docs/source/run-ai-pipeline.adoc[]

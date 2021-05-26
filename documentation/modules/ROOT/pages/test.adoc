@@ -1,0 +1,47 @@
+= Deploy Service
+include::_attributes.adoc[]
+
+= Setup
+[#prerequisite]
+
+include::https://raw.githubusercontent.com/isabelizimm/elyra-aidevsecops-tutorial/scholars-template/docs/source/explore-notebooks-and-manage-dependencies.adoc[]
+
+== The Service
+
+The code:
+
+[.lines_7]
+[.console-input]
+[source, java,subs="+macros,+attributes"]
+----
+public class Main {
+
+    public static void main(String[] args) {
+
+    } 
+
+}
+
+./mvnw compile
+----
+
+[#package]
+== Packaging the Service
+
+You can package the next bash script:
+
+[source,bash,subs="+macros,+attributes"]
+----
+include::example$run.sh[]
+----
+
+[#deploy]
+== Deploy the Service
+
+And then you can deploy the service and execute commands inside:
+
+:podname: apps
+
+include::partial$exec_pod.adoc[]
+
+:!podname:
