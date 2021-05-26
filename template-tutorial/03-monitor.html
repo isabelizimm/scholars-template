@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Deploy model :: Template Tutorial</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/course-template/template-tutorial/03-monitor.html">
+    <link rel="prev" href="02-deploy.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img
+          src="../_/img/header_logo.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" href="https://redhat-scholars.github.io/course-template">Template Tutorial</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Books</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">CheatSheets</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">CheatSheet A</a>
+            <a class="navbar-item" href="#">CheatSheet B</a>
+            <a class="navbar-item" href="#">CheatSheet C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Upcoming Events</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Event A</a>
+            <a class="navbar-item" href="#">Event B</a>
+            <a class="navbar-item" href="#">Event C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Tutorial A</a>
+            <a class="navbar-item" href="#">Tutorial B</a>
+            <a class="navbar-item" href="#">Tutorial C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="template-tutorial" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Template Tutorial</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="01-setup.html">1. Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#prerequisite">Prerequisites</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#setup-initial-environment">Setup environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#explore-notebooks-and-manage-dependencies">Manage Dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#use-bots.adoc">Use bots</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#push-changes">Git extension</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-deploy.html">2. Deploy Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-deploy.html#build-images">Build Image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-deploy.html#deploy-model">Deploy Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-deploy.html#test-model">Test Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-deploy.html#monitor-model">Monitor Model</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-monitor.html">3. Use Pipelines</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#create-ai-pipeline">Build Pipeline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#run-ai-pipeline">Run Model</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Template Tutorial</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Template Tutorial</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Template Tutorial</a></li>
+    <li><a href="03-monitor.html">3. Use Pipelines</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/isabelizimm/scholars-template/edit/master/documentation/modules/ROOT/pages/03-monitor.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Deploy model</h1>
+<div class="sect1">
+<h2 id="create-ai-pipeline"><a class="anchor" href="#create-ai-pipeline"></a>Create AI Pipeline (using Elyra UI)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_add_runtime_images_using_ui"><a class="anchor" href="#_add_runtime_images_using_ui"></a>Add runtime images (using UI)</h3>
+<div class="paragraph">
+<p>Now that your images are available on the registry, we need to add them
+to <a href="https://github.com/elyra-ai/elyra">Elyra</a> metadata:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open command palette (Cntrl + Shift + C) and select
+<code>"Manage Runtime Images"</code>.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Once the new panel has been opened on the left of the UI, click add
+button to create new image.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Fill all required fields to create image for download dataset step:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Name: <code>Tutorial Download Dataset Step</code></p>
+</li>
+<li>
+<p>Image Name: <code>quay.io/thoth-station/elyra-aidevsecops-dataset:v0.5.0</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The image is now available and can be used into your AI pipeline</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Repeat steps 2, 3 to add <code>training</code> image using the following inputs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Name: <code>Tutorial Training Step</code></p>
+</li>
+<li>
+<p>Image Name: <code>quay.io/thoth-station/elyra-aidevsecops-training:v0.5.0</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_add_runtime_images_using_cli"><a class="anchor" href="#_add_runtime_images_using_cli"></a>Add runtime images (using CLI)</h4>
+<div class="paragraph">
+<p>If you are more familiar with using CLI from the terminal you can use
+the following steps to create a runtime to run an AI Pipeline.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open Terminal in JupyterLab</p>
+</li>
+<li>
+<p>Run the following command with your specific inputs:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">elyra-metadata install runtime-images --display_name="Tutorial Training Step" --description="Training Step Tutorial" --image_name="quay.io/thoth-station/elyra-aidevsecops-training:v0.5.0"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to know more, check the following
+<a href="https://elyra.readthedocs.io/en/v2.0.1/user_guide/runtime-image-conf.html">link</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_runtime_to_be_used_in_kubeflow_pipeline_using_ui"><a class="anchor" href="#_create_runtime_to_be_used_in_kubeflow_pipeline_using_ui"></a>Create runtime to be used in Kubeflow pipeline (using UI)</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the Kubeflow Pipeline Runtime Tab on the left panel of
+Jupyterlab UI or use the command palette (Cntrl + Shift + C) and select
+<code>"Manage Kubeflow Pipelines Runtimes"</code>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There are more buttons to see Runtimes in the menu tab or in the
+pipeline editor as well.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Once the new panel has been opened on the left of the UI, click add
+button to create new Kubeflow Pipeline Runtime</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Insert all inputs for the Runtime:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Name: <code>Elyra AIDevSecOps Tutorial</code></p>
+</li>
+<li>
+<p>Kubeflow Pipeline API Endpoint:
+<code><a href="http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline" class="bare">http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline</a></code></p>
+</li>
+<li>
+<p>Kubeflow Pipeline Engine: <code>Tekton</code></p>
+</li>
+<li>
+<p>Cloud Object Storage Endpoint: <code>OBJECT_STORAGE_ENDPOINT_URL</code></p>
+</li>
+<li>
+<p>Cloud Object Storage Username: <code>AWS_ACCESS_KEY_ID</code></p>
+</li>
+<li>
+<p>Cloud Object Storage Password: <code>AWS_SECRET_ACCESS_KEY</code></p>
+</li>
+<li>
+<p>Cloud Object Storage Bucket Name: <code>OBJECT_STORAGE_BUCKET_NAME</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>where <code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code>,
+<code>OBJECT_STORAGE_ENDPOINT_URL</code>, <code>OBJECT_STORAGE_BUCKET_NAME</code> are specific
+to the user cloud object storage selected.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_runtime_to_be_used_in_kubeflow_pipeline_using_cli"><a class="anchor" href="#_create_runtime_to_be_used_in_kubeflow_pipeline_using_cli"></a>Create runtime to be used in Kubeflow pipeline (using CLI)</h4>
+<div class="paragraph">
+<p>If you are more familiar with using CLI from the terminal you can use
+the following steps to create a runtime to run an AI Pipeline.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open Terminal in JupyterLab</p>
+</li>
+<li>
+<p>Run the following command with your specific inputs
+(CLOUD_OBJECT_STORAGE_ENDPOINT, CLOUD_OBJECT_STORAGE_USERNAME,
+CLOUD_OBJECT_STORAGE_PASSWORD, CLOUD_OBJECT_BUCKET_NAME):</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">elyra-metadata install runtimes --display_name="KFP operate first" --api_endpoint="http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline" --engine=Tekton --cos_endpoint=CLOUD_OBJECT_STORAGE_ENDPOINT --cos_username=CLOUD_OBJECT_STORAGE_USERNAME --cos_password=CLOUD_OBJECT_STORAGE_PASSWORD --cos_bucket=CLOUD_OBJECT_BUCKET_NAME</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to know more, check the following
+<a href="https://elyra.readthedocs.io/en/v2.0.1/user_guide/runtime-conf.html">link</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_elyra_ai_pipeline_using_the_ui"><a class="anchor" href="#_create_elyra_ai_pipeline_using_the_ui"></a>Create Elyra AI Pipeline using the UI</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open new Elyra Pipeline Editor</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Insert all steps you want, moving notebooks to the editor and connect
+them using <a href="https://github.com/elyra-ai/elyra">Elyra</a> UI.</p>
+</li>
+<li>
+<p>Insert inputs for each step/notebook in terms of image runtime,
+environment variables and resources.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Add comments and describe your steps (Optional).</p>
+</li>
+<li>
+<p>Save your AI Pipeline.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can find the above pipeline
+<a href="https://github.com/thoth-station/elyra-aidevsecops-tutorial/blob/master/elyra-aidevsecops-tutorial.pipeline">here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_references"><a class="anchor" href="#_references"></a>References</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/elyra-ai/elyra">Elyra</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="run-ai-pipeline"><a class="anchor" href="#run-ai-pipeline"></a>Run AI Pipeline</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using <a href="https://github.com/elyra-ai/elyra">Elyra</a> UI:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Use play button to run the AI Pipeline.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Before starting the pipeline you need to select which runtime
+environment to use and add a name for your pipeline.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Run your pipeline and move to
+<a href="http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/#/experiments">Kubeflow
+Pipeline UI</a> to see what is happening.</p>
+</div>
+<div class="paragraph">
+<p>For more examples on how to create an AI pipeline in Elyra, you can use
+this
+<a href="https://github.com/elyra-ai/examples/tree/master/pipelines/hello_world_kubeflow_pipelines">link</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can check the status of each step in the pipeline directly from the
+UI and debug from logs if any problems occur:</p>
+</div>
+<div class="paragraph">
+<p>The model is stored in your bucket, you can check from your terminal
+using
+<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">aws
+CLI</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">  aws s3 --profile moc-pipeline-kfp --endpoint https://s3-openshift-storage.apps.zero.massopen.cloud/ ls s3://{your_bucket}/{your_project_name}/models/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>moc-pipeline-kfp</code> is the aws profile containing
+<code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code> to access your bucket.</p>
+</div>
+<div class="sect2">
+<h3 id="_references_2"><a class="anchor" href="#_references_2"></a>References</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/elyra-ai/elyra">Elyra</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="02-deploy.html">2. Deploy Model</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

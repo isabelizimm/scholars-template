@@ -79,19 +79,46 @@
     <a class="nav-link" href="#prerequisite">Prerequisites</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#minikube">Setup Minikube</a>
+    <a class="nav-link" href="#setup-initial-environment">Setup environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#explore-notebooks-and-manage-dependencies">Manage Dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#use-bots.adoc">Use bots</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#push-changes">Git extension</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="02-deploy.html">2. Deploy Service</a>
+    <a class="nav-link" href="02-deploy.html">2. Deploy Model</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="02-deploy.html#package">Build Service</a>
+    <a class="nav-link" href="02-deploy.html#build-images">Build Image</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="02-deploy.html#deploy">Deploy Dervice</a>
+    <a class="nav-link" href="02-deploy.html#deploy-model">Deploy Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-deploy.html#test-model">Test Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-deploy.html#monitor-model">Monitor Model</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-monitor.html">3. Use Pipelines</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-monitor.html#create-ai-pipeline">Build Pipeline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-monitor.html#run-ai-pipeline">Run Model</a>
   </li>
 </ul>
   </li>
@@ -135,242 +162,131 @@
 <article class="doc">
 <h1 class="page">Setup</h1>
 <div class="sect1">
-<h2 id="prerequisite"><a class="anchor" href="#prerequisite"></a>Prerequisite CLI tools</h2>
+<h2 id="prerequisite"><a class="anchor" href="#prerequisite"></a>Pre-requisites</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following CLI tools are required for running the exercises in this tutorial.
-Please have them installed and configured before you get started with any of the tutorial chapters.</p>
+<p>In this section, the user can find the requirements that should be
+available before starting the tutorial.</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-center valign-top"><strong>Tool</strong></th>
-<th class="tableblock halign-center valign-top"><strong>macOS</strong></th>
-<th class="tableblock halign-center valign-top"><strong>Fedora</strong></th>
-<th class="tableblock halign-center valign-top"><strong>windows</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Git</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://git-scm.com/download/mac">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://git-scm.com/download/linux">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://git-scm.com/download/win">Download</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Docker</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://docs.docker.com/docker-for-mac/install">Docker for Mac</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>dnf install docker</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://docs.docker.com/docker-for-windows/install">Docker for Windows</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>VirtualBox</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://download.virtualbox.org/virtualbox/6.1.6/VirtualBox-6.1.6-137129-OSX.dmg">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://www.virtualbox.org/wiki/Linux_Downloads">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://download.virtualbox.org/virtualbox/6.1.6/VirtualBox-6.1.6-137129-Win.exe">Download</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://kubernetes.io/docs/tasks/tools/install-minikube">Minikube</a> v1.12.1</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/kubernetes/minikube/releases/download/v1.12.1/minikube-darwin-amd64">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/kubernetes/minikube/releases/download/v1.12.1/minikube-linux-amd64">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/kubernetes/minikube/releases/download/v1.12.1/minikube-windows-amd64.exe">Download</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>kubectl v1.18.6</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://storage.googleapis.com/kubernetes-release/release/v1.18.6/bin/darwin/amd64/kubectl">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://storage.googleapis.com/kubernetes-release/release/v1.18.6/bin/linux/amd64/kubectl">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://storage.googleapis.com/kubernetes-release/release/v1.18.6/bin/windows/amd64/kubectl.exe">Download</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/wercker/stern">stern</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>brew install stern</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/wercker/stern/releases/download/1.6.0/stern_linux_amd64">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/wercker/stern/releases/download/1.11.0/stern_windows_amd64.exe">Download</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Apache Maven 3.6.3</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz">Download</a></p></td>
-</tr>
-</tbody>
-</table>
+<div class="sect2">
+<h3 id="_login"><a class="anchor" href="#_login"></a>Login</h3>
+<div class="sect3">
+<h4 id="_operate_first_login"><a class="anchor" href="#_operate_first_login"></a>Operate First Login</h4>
 <div class="paragraph">
-<p>The following CLI tools are optional for running the exercises in this tutorial.
-Although they are used in the tutorial, you could use others without any problem.</p>
+<p>Using <a href="https://www.operate-first.cloud/">Operate First</a> you just need:</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-center valign-top"><strong>Tool</strong></th>
-<th class="tableblock halign-center valign-top"><strong>macOS</strong></th>
-<th class="tableblock halign-center valign-top"><strong>Fedora</strong></th>
-<th class="tableblock halign-center valign-top"><strong>windows</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/mikefarah/yq">yq v2.4.1</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/mikefarah/yq/releases/download/2.4.1/yq_darwin_amd64">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/mikefarah/yq/releases/download/2.4.1/yq_linux_amd64">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/mikefarah/yq/releases/download/2.4.1/yq_windows_amd64.exe">Download</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/stedolan/jq">jq v1.6.0</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/stedolan/jq/releases/download/jq-1.6/jq-osx-amd64">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/stedolan/jq/releases/download/jq-1.6/jq-win64.exe">Download</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://httpie.org/">httpie</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>brew install httpie</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>dnf install httpie</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://httpie.org/doc#windows-etc" class="bare">https://httpie.org/doc#windows-etc</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">watch</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>brew install watch</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>dnf install procps-ng</code></p></td>
-<td class="tableblock halign-center valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">kubectx and kubens</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>brew install kubectx</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/ahmetb/kubectx" class="bare">https://github.com/ahmetb/kubectx</a></p></td>
-<td class="tableblock halign-center valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://github.com/rakyll/hey">hey</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>brew install hey</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://storage.googleapis.com/jblabs/dist/hey_linux_v0.1.2">Download</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://storage.googleapis.com/jblabs/dist/hey_win_v0.1.2.exe">Download</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="minikube"><a class="anchor" href="#minikube"></a>Setup Kubernetes</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The profile my_profile is created to run the tutorial:</p>
-</div>
-<div class="tabset is-loading">
-<div class="ulist tabs">
+<div class="ulist">
 <ul>
 <li>
-<p><a id="tabset1_minikube"></a>Minikube</p>
-</li>
-<li>
-<p><a id="tabset1_openshift"></a>OpenShift</p>
+<p>Gmail account required to login to
+<a href="https://jupyter.org/hub">JupyterHub</a>.</p>
 </li>
 </ul>
 </div>
-<div class="content">
-<div class="tab-pane" aria-labelledby="tabset1_minikube">
+</div>
+<div class="sect3">
+<h4 id="_other_environments_login"><a class="anchor" href="#_other_environments_login"></a>Other environments Login</h4>
 <div class="paragraph">
-<p>Having <code>minikube</code> installed and in your <code>PATH</code>, then run:</p>
+<p>For other environment you might receive Openshift credentials.</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_github_account"><a class="anchor" href="#_github_account"></a>GitHub account</h3>
 <div class="paragraph">
-<p><strong>MacOS / Linux:</strong></p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">minikube start --memory=8192 --cpus=3 --kubernetes-version=v1.18.6 --vm-driver=virtualbox -p my_profile</code></pre>
+<p>The project is based on GitHub, if you don’t have one just following
+this
+<a href="https://docs.github.com/en/github/getting-started-with-github/signing-up-for-a-new-github-account">link</a>.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_github_token"><a class="anchor" href="#_github_token"></a>GitHub token</h3>
 <div class="paragraph">
-<p><strong>Windows:</strong></p>
+<p>If you don’t have a GitHub token, you can create one following GitHub
+docs:
+<a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">create
+GitHub token</a>.</p>
 </div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">minikube start --memory=8192 --cpus=3 --kubernetes-version=v1.18.6 --vm-driver=hyperv -p my_profile</code></pre>
 </div>
-</div>
+<div class="sect2">
+<h3 id="_namespace_for_deployment"><a class="anchor" href="#_namespace_for_deployment"></a>Namespace for deployment</h3>
+<div class="sect3">
+<h4 id="_operate_first_namespace_for_deployment"><a class="anchor" href="#_operate_first_namespace_for_deployment"></a>Operate First namespace for deployment</h4>
 <div class="paragraph">
-<p>And the output must be something similar like:</p>
-</div>
-<div class="listingblock console-output">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">❌  profile "my_profile" not found
-✅  Created a new profile : my_profile
-✅  minikube profile was successfully set to my_profile
-😄  [default] minikube v1.12.1 on Darwin 10.15.2
-✨  Selecting 'virtualbox' driver from user configuration (alternates: [hyperkit])
-🔥  Creating virtualbox VM (CPUs=2, Memory=8192MB, Disk=50000MB) ...
-🐳  Preparing Kubernetes v1.18.6 on Docker '19.03.5' ...
-    ▪ apiserver.enable-admission-plugins=LimitRanger,NamespaceExists,NamespaceLifecycle,ResourceQuota,ServiceAccount,DefaultStorageClass,MutatingAdmissionWebhook
-🚜  Pulling images ...
-🚀  Launching Kubernetes ...
-⌛  Waiting for cluster to come online ...
-🏄  Done! kubectl is now configured to use "my_profile"</code></pre>
+<p>Using <a href="https://www.operate-first.cloud/">Operate First</a> you can
+<code>request access to a namespace</code> where you want to deploy your
+application using this
+<a href="https://github.com/operate-first/support/issues/new?assignees=&amp;labels=onboarding&amp;template=onboarding_to_cluster.md&amp;title=">link</a>.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_other_environments_namespace_for_deployment"><a class="anchor" href="#_other_environments_namespace_for_deployment"></a>Other environments namespace for deployment</h4>
 <div class="paragraph">
-<p>Finally configure to use minikube internal docker as docker host:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">eval $(minikube docker-env -p my_profile)</code></pre>
+<p>If you have a different environment, you usually receive one by default
+or you need to ask admins to create a namespace for you.</p>
 </div>
 </div>
 </div>
-<div class="tab-pane" aria-labelledby="tabset1_openshift">
+<div class="sect2">
+<h3 id="_cloud_object_storage"><a class="anchor" href="#_cloud_object_storage"></a>Cloud object storage</h3>
+<div class="sect3">
+<h4 id="_operate_first_cloud_object_storage"><a class="anchor" href="#_operate_first_cloud_object_storage"></a>Operate First Cloud object storage</h4>
 <div class="paragraph">
-<p>To run OpenShift4, you need to have one provisioned using <a href="https://try.openshift.com">try.openshift.com</a> or can use any existing OpenShift4 cluster.
-Once you have your cluster, you can download the latest OpenShift client(oc) from <a href="https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/">here</a> and add to your path.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>oc version</pre>
-</div>
+<p>Using <a href="https://www.operate-first.cloud/">Operate First</a> you can
+<code>request a new bucket</code> once you get a namespace. In order to do that,
+use the following
+<a href="https://github.com/operate-first/support/issues/new?assignees=&amp;labels=user-support&amp;template=ceph_bucket_request.md&amp;title=">link</a>.</p>
 </div>
 <div class="paragraph">
-<p>You can check the OpenShift version using:</p>
+<p>Once you created a new bucket in your namespace, you can login in the
+cluster using the following
+<a href="https://console-openshift-console.apps.zero.massopen.cloud/k8s/cluster/projects">link</a>
+and in your namespace you will find:</p>
 </div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc version</code></pre>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AWS_ACCESS_KEY_ID</code> and `AWS_SECRET_ACCESS_KEY`in a Secret Object with
+the bucket name you crated.</p>
+</li>
+<li>
+<p><code>OBJECT_STORAGE_ENDPOINT_URL</code>, <code>OBJECT_STORAGE_BUCKET_NAME</code> in a
+ConfigMap Object with the bucket name you crated.</p>
+</li>
+</ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_other_cloud_object_storages"><a class="anchor" href="#_other_cloud_object_storages"></a>Other Cloud object storages</h4>
 <div class="paragraph">
-<p>The output should show oc version &gt;=4.2:</p>
-</div>
-<div class="listingblock console-output">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: openshift-clients-4.3.0-201910250623-88-g6a937dfe
-Kubernetes Version: v1.18.6</code></pre>
+<p>You can use your own bucket credentials, setting them as env variables
+<code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code>. You also need to have
+<code>OBJECT_STORAGE_ENDPOINT_URL</code>, <code>OBJECT_STORAGE_BUCKET_NAME</code>.</p>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_kubeflow_pipeline_endpoint"><a class="anchor" href="#_kubeflow_pipeline_endpoint"></a>Kubeflow Pipeline endpoint</h3>
+<div class="sect3">
+<h4 id="_operate_first_kfp_endpoint"><a class="anchor" href="#_operate_first_kfp_endpoint"></a>Operate First KFP endpoint</h4>
 <div class="paragraph">
-<p>Then login into the cluster and run:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc new-project my_profile</code></pre>
+<p>For <a href="https://www.operate-first.cloud/">Operate First</a> you can find the
+Kubeflow Pipeline UI at this
+<a href="http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/_/pipeline/#/pipelines">link</a>.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="paragraph">
-<p>And then you are ready for start using Kubernetes:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/kubelogo.png" alt="kubelogo">
+<div class="sect2">
+<h3 id="_references"><a class="anchor" href="#_references"></a>References</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.operate-first.cloud/">Operate First</a></p>
+</li>
+<li>
+<p><a href="https://jupyter.org/hub">JupyterHub</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -383,12 +299,12 @@ Kubernetes Version: v1.18.6</code></pre>
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone <a href="https://github.com/redhat-developer-demos/rhd-tutorial-common.git" class="bare">https://github.com/redhat-developer-demos/rhd-tutorial-common.git</a> my_folder</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone <a href="https://github.com/AICoE/elyra-aidevsecops-tutorial" class="bare">https://github.com/AICoE/elyra-aidevsecops-tutorial</a> elyra-aidevsecops-tutorial</code></pre>
 </div>
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export TUTORIAL_HOME="$(pwd)/my_folder"</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export TUTORIAL_HOME="$(pwd)/elyra-aidevsecops-tutorial"</code></pre>
 </div>
 </div>
 <div class="listingblock console-input">
@@ -398,9 +314,224 @@ Kubernetes Version: v1.18.6</code></pre>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="setup-initial-environment"><a class="anchor" href="#setup-initial-environment"></a>Setup initial environment</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_1_fork_this_repo_from_github_into_your_account"><a class="anchor" href="#_1_fork_this_repo_from_github_into_your_account"></a>1. Fork this repo from GitHub into your account</h3>
+<div class="paragraph">
+<p>Check
+<a href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo">Fork
+a repo</a> from GitHub docs.</p>
+</div>
+<div class="paragraph">
+<p>In this tutorial we rely on
+<a href="https://github.com/aicoe-aiops/project-template">project-template</a>, as
+described above, in order to have a common structures that can be easily
+used by data scientists and devops. Have a structure for the projects in
+general allows others to find all the bits required for the ML lifecycle
+and from the DevOps lifecycle.</p>
+</div>
+<div class="paragraph">
+<p>If you want to use this template for your AI project, go to
+<a href="https://github.com/aicoe-aiops/project-template">project-template</a> and
+select <code>use the template</code> from the button provided in template
+repositories.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_access_jupyterhub_and_spawn_the_elyra_image"><a class="anchor" href="#_2_access_jupyterhub_and_spawn_the_elyra_image"></a>2. Access JupyterHub and spawn the Elyra image</h3>
+<div class="sect3">
+<h4 id="_operate_first_access_jupyterhub"><a class="anchor" href="#_operate_first_access_jupyterhub"></a>Operate First access JupyterHub</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You can get access <a href="https://jupyter.org/hub">JupyterHub</a> on
+<a href="https://www.operate-first.cloud/">Operate First</a> using the following
+<a href="https://jupyterhub-opf-jupyterhub.apps.zero.massopen.cloud/">link</a></p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Select Elyra image called <code>ml-prague-workshop:latest</code> from the list of
+images.</p>
+</li>
+<li>
+<p>Select <code>Large</code> for container size.</p>
+</li>
+<li>
+<p>Insert the environment variables required using add button in
+JupyterLab UI:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AWS_ACCESS_KEY_ID</code></p>
+</li>
+<li>
+<p><code>AWS_SECRET_ACCESS_KEY</code>.</p>
+</li>
+<li>
+<p><code>OBJECT_STORAGE_ENDPOINT_URL</code></p>
+</li>
+<li>
+<p><code>OBJECT_STORAGE_BUCKET_NAME</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_clone_your_repo_using_jupyterlab_git_extension"><a class="anchor" href="#_3_clone_your_repo_using_jupyterlab_git_extension"></a>3. Clone your repo using Jupyterlab Git Extension</h3>
+<div class="paragraph">
+<p>Once your image is ready and you are in the Jupyterlab UI, you can use
+the Git extension provided to clone
+<a href="https://github.com/thoth-station/elyra-aidevsecops-tutorial.git">this
+repo</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click the Git extension button from Jupyterlab UI:</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Take HTTPS link of the GitHub repo you want to clone, for this
+tutorial use your forked one from this repo:</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Insert the link taken from your forked repo in the JupyterLab Git
+Extension:
+e.g. <code><a href="https://github.com/thoth-station/elyra-aidevsecops-tutorial.git" class="bare">https://github.com/thoth-station/elyra-aidevsecops-tutorial.git</a></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/aicoe-aiops/project-template">project-template</a></p>
+</li>
+<li>
+<p><a href="https://www.operate-first.cloud/">Operate First</a></p>
+</li>
+<li>
+<p><a href="https://jupyter.org/hub">JupyterHub</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="explore-notebooks-and-manage-dependencies"><a class="anchor" href="#explore-notebooks-and-manage-dependencies"></a>Start working on your notebooks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For the purpose of this tutorial, the notebooks have been created
+already.</p>
+</div>
+<div class="sect2">
+<h3 id="_manage_dependencies_for_your_new_notebook"><a class="anchor" href="#_manage_dependencies_for_your_new_notebook"></a>Manage dependencies for your new notebook</h3>
+<div class="paragraph">
+<p>Use <a href="https://github.com/thoth-station/jupyterlab-requirements">jupyterlab
+extension for dependency management</a>. For each notebook you can follow
+similar pattern, in this way you can guarantee all notebooks are in sync
+with their dependencies and you are using the correct kernel.</p>
+</div>
+<div class="paragraph">
+<p>The notebooks that will be used in an AI Pipeline are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://github.com/thoth-station/elyra-aidevsecops-tutorial/blob/master/notebooks/download_dataset.ipynb">download_dataset.ipynb</a>
+&#8594; Download MNIST dataset from Tensorflow (NOTE in
+<a href="https://github.com/elyra-ai/elyra">Elyra</a> a step in a pipeline can also
+be performed with a
+<a href="https://github.com/thoth-station/elyra-aidevsecops-tutorial/blob/master/src/data/download_dataset_from_tf.py">Python
+script</a>;</p>
+</li>
+<li>
+<p><a href="https://github.com/thoth-station/elyra-aidevsecops-tutorial/blob/master/notebooks/training.ipynb">training.ipynb</a>
+Train the model for MNIST Classification and store it locally or in the
+Cloud Object Storage;</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_references_2"><a class="anchor" href="#_references_2"></a>References</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/thoth-station/jupyterlab-requirements">jupyterlab
+extension for dependency management</a></p>
+</li>
+<li>
+<p><a href="https://github.com/elyra-ai/elyra">Elyra</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="use-bots"><a class="anchor" href="#use-bots"></a>Dependencies updates in the repo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you install [Kebechet Bot][7] you can benefit from automatic
+pipelines and dependency management updates. You get automatic updates
+for your dependencies in case of CVE, new packages releases, performance
+changes. If you want to know more about Thoth bots and services have a
+look
+<a href="https://github.com/AICoE/aicoe-ci/blob/master/docs/thoth-bots-setup.md#instructions-to-setup-bots-and-ci-services">here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="push-changes"><a class="anchor" href="#push-changes"></a>Store your changes on your GitHub repo</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_push_your_changes_to_github_repo"><a class="anchor" href="#_push_your_changes_to_github_repo"></a>Push your changes to GitHub repo</h3>
+<div class="paragraph">
+<p>Whenever you finish working on your project or you need to stop, push
+your changes to GitHub, so that all your work can be saved. In order to
+do that:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to Git Box panel on the left and select Push Changes.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Insert your Github account name and your GitHub token to push to the
+GitHub repo you cloned.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Then go to your repo and open a Pull Request.</p>
+</div>
+</div>
+</div>
+</div>
 <nav class="pagination">
   <span class="prev"><a href="index.html">Template Tutorial</a></span>
-  <span class="next"><a href="02-deploy.html">2. Deploy Service</a></span>
+  <span class="next"><a href="02-deploy.html">2. Deploy Model</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
